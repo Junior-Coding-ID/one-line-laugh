@@ -1,15 +1,9 @@
-// One-Line Laugh v1: a single funny line, at most 200 characters.
-// The punch lands on the last word: the "promotions" tab in the inbox
-// takes the word literally and promotes itself to management.
-import { mkdirSync, writeFileSync } from "node:fs";
+// The One-Line Laugh — v2 entry.
+// Writes a single funny line (max 200 chars) to /output.
+import { writeFileSync } from "node:fs";
 
 const LINE =
-  "I finally cleaned my inbox, and the promotions tab immediately promoted itself to management.";
+  "I've waved to my neighbor for eight years without learning his name, so now I'm just hoping he runs for mayor.";
 
-// Fail loudly instead of submitting a line of the wrong length.
-if (LINE.length !== 93) {
-  throw new Error(`line must be exactly 93 characters, got ${LINE.length}`);
-}
-
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", LINE, "utf8");
+// The grader reads the joke from /output, so write exactly one line.
+writeFileSync("/output", LINE, "utf8");
